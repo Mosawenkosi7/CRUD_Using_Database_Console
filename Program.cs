@@ -12,14 +12,18 @@ namespace CRUD_Using_Database
         static void Main(string[] args)
         {
             Display ds = new Display();
-            
+
             //display the category table
-            ds.DisplayCategoryTable();
+            //ds.DisplayCategoryTable();
 
             //Insert category
-            ds.AddCategory();
+            //ds.AddCategory();
 
             //display the category table (NEW NEW ADDED CATEGORY)
+            //ds.DisplayCategoryTable();
+
+            ds.UpdateCategory();
+            Console.Clear();
             ds.DisplayCategoryTable();
         }
     }

@@ -15,7 +15,7 @@ namespace CRUD_Using_Database.PresentationLayer
             handler.Read();
             foreach (var item in handler.CategoryData)
             {
-                Console.WriteLine(item.CaregoryName);
+                Console.WriteLine($"{item.CategoryId} =====  {item.CaregoryName}");
             }
         }
 
@@ -29,5 +29,23 @@ namespace CRUD_Using_Database.PresentationLayer
             Console.WriteLine("The category HAS been added");
 
         }
+
+        public void UpdateCategory()
+        {
+            Console.Clear();
+            DisplayCategoryTable(); //display the category
+
+            //display the category table
+            Console.Write("Enter category Id to update: ");
+            int categoryId = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter new category name: ");
+            string categoryName = Console.ReadLine();
+
+            //call the method that update the category details
+            handler.UpdateDatabase(categoryName,categoryId);
+        }
     }
+
+
 }

@@ -85,5 +85,27 @@ VALUES ('{category}')";
             
         }
 
+
+        //this method will take user input to update existing data in the database
+        public void UpdateDatabase(string category, int id)
+        {
+            //officially establish the connection
+            connectToDatbase = new SqlConnection(database);
+            //open the connection
+            connectToDatbase.Open();
+
+            //set up the query to update the existing database value
+            string query = $@"UPDATE Categories
+SET CategoryName = '{category}'
+WHERE CategoryId = '{id}'";
+
+            //execute the query 
+            executeCommand = new SqlCommand(query, connectToDatbase);
+            
+            //execute the SqlCommand method that Updates the database
+            executeCommand.ExecuteNonQuery();
+
+            //close the connection
+        }
     }
 }
