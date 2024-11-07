@@ -63,5 +63,27 @@ namespace CRUD_Using_Database
             connectToDatbase.Close();
         }
 
+        public void InsertData(string category)
+        {
+            //officially establish a connection
+            connectToDatbase = new SqlConnection (database);
+
+            //open the connection
+            connectToDatbase.Open();
+            //create a query to insert data
+            string query = $@"INSERT INTO Categories (CategoryName)
+VALUES ('{category}')";
+
+            //execute the query 
+            executeCommand = new SqlCommand(query, connectToDatbase);
+
+            //execute the ExecuteNonQuery() method in order to add to the database
+            executeCommand.ExecuteNonQuery();
+
+            //close the connection
+            connectToDatbase.Close();
+            
+        }
+
     }
 }

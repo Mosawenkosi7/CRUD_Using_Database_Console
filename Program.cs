@@ -11,12 +11,16 @@ namespace CRUD_Using_Database
     {
         static void Main(string[] args)
         {
-            DataHandler handler = new DataHandler();
-            handler.Read();
-            foreach (Category item in handler.CategoryData)
-            {
-                Console.WriteLine(item.CaregoryName);
-            }
+            Display ds = new Display();
+            
+            //display the category table
+            ds.DisplayCategoryTable();
+
+            //Insert category
+            ds.AddCategory();
+
+            //display the category table (NEW NEW ADDED CATEGORY)
+            ds.DisplayCategoryTable();
         }
     }
 }

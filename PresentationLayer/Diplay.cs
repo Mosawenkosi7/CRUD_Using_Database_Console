@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CRUD_Using_Database.PresentationLayer
 {
-    internal class Diplay
+    internal class Display
     {
         DataHandler handler = new DataHandler();
         
@@ -17,6 +17,17 @@ namespace CRUD_Using_Database.PresentationLayer
             {
                 Console.WriteLine(item.CaregoryName);
             }
+        }
+
+        public void AddCategory()
+        {
+            Console.Write("Hello, please enter the category you want to add: ");
+            string category = Console.ReadLine();
+            handler.InsertData(category);
+
+            //category have been added
+            Console.WriteLine("The category HAS been added");
+
         }
     }
 }
