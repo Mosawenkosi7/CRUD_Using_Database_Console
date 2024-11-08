@@ -12,7 +12,7 @@ namespace CRUD_Using_Database
         static void Main(string[] args)
         {
             Display ds = new Display();
-
+            ds.TotalRows();
             //display the category table
             //ds.DisplayCategoryTable();
 
@@ -22,9 +22,11 @@ namespace CRUD_Using_Database
             //display the category table (NEW NEW ADDED CATEGORY)
             //ds.DisplayCategoryTable();
 
-            ds.UpdateCategory();
-            Console.Clear();
-            ds.DisplayCategoryTable();
+            //ds.UpdateCategory();
+            //Console.Clear();
+            //ds.DisplayCategoryTable();
+
+            ds.DeleteCategory();
         }
     }
 }

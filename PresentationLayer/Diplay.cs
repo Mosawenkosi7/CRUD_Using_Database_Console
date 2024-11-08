@@ -45,6 +45,24 @@ namespace CRUD_Using_Database.PresentationLayer
             //call the method that update the category details
             handler.UpdateDatabase(categoryName,categoryId);
         }
+
+        public void DeleteCategory()
+        {
+            //display the category to the user
+            DisplayCategoryTable();
+            Console.WriteLine("");
+            //ask user for category id they want to delete
+            Console.Write("Enter id of the category to delete: ");
+            int categoryId = Convert.ToInt32(Console.ReadLine());
+            handler.DeleteData(categoryId);
+        }
+
+        public void TotalRows()
+        {
+            int total = handler.TotalData();
+            Console.Write($"The total rows of Categories table are: {total}\n");
+           
+        }
     }
 
 

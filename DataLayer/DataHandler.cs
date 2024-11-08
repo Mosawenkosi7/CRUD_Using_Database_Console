@@ -107,5 +107,43 @@ WHERE CategoryId = '{id}'";
 
             //close the connection
         }
+
+        public void DeleteData(int categoryId)
+        {
+            //officially connect to database
+            connectToDatbase = new SqlConnection(database);
+            //open the connection
+
+            //write query that will delete the row
+            string query = $@"DELETE FROM Categories
+WHERE CategoryId = '{categoryId}'";
+
+            //execute the query 
+            executeCommand = new SqlCommand();
+            executeCommand.CommandText = query;
+            executeCommand.Connection = connectToDatbase;
+            connectToDatbase.Open();
+            //execute the SqlCommand method that will execute the query 
+            executeCommand.ExecuteNonQuery();
+            //close the connection
+            connectToDatbase.Close();
+        }
+
+        public int TotalData()
+        {
+            //officially connect to database
+            connectToDatbase = new SqlConnection(database);
+            //open the connection
+            connectToDatbase.Open();
+
+            //query that will return the total results
+            string query = @"SELECT COUNT(*)
+FROM Categories";
+
+            //execute the query
+            executeCommand = new SqlCommand(query, connectToDatbase);
+            int totalDataRows = (int)executeCommand.ExecuteScalar();
+            return totalDataRows;
+        }
     }
 }
